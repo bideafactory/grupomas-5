@@ -1,0 +1,206 @@
+/* =========================================
+   VARIABLES GLOBALES (Tema Claro)
+========================================= */
+:root {
+    --bg-main: #ffffff;          /* Fondo principal blanco */
+    --bg-card: #ffffff;          /* Fondo de las tarjetas */
+    --text-main: #1a1a1a;        /* Gris casi negro para títulos (más elegante que el negro puro) */
+    --text-muted: #666666;       /* Gris medio para párrafos y subtítulos */
+    --accent-orange: #ff5722;
+    --accent-blue: #0066cc;
+    --border-color: #eaeaea;     /* Gris súper suave para bordes de las tarjetas */
+    --font-main: 'Montserrat', sans-serif;
+    --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* =========================================
+   RESETS BÁSICOS
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-main);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* =========================================
+   ESTILOS PRINCIPALES (HERO)
+========================================= */
+.hero {
+    text-align: center;
+    padding: 8vh 20px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.main-logo {
+    max-width: 100%;
+    width: 450px; /* Tamaño predominante para Grupo +5 */
+    margin-bottom: 30px;
+}
+
+.hero-text h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    color: var(--text-main);
+}
+
+.hero-text p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 30px;
+}
+
+.divider {
+    height: 3px;
+    width: 60px;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-orange));
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* =========================================
+   SECCIÓN DE EMPRESAS (GRID)
+========================================= */
+.holding-section {
+    text-align: center;
+    padding: 20px 20px 80px;
+    flex: 1; /* Esto asegura que el footer siempre baje al final de la pantalla */
+}
+
+.holding-section h2 {
+    font-weight: 600;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    color: var(--text-main);
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 40px;
+}
+
+.companies-grid {
+    display: grid;
+    /* Grid automático y responsivo */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* =========================================
+   TARJETAS DE LOS LOGOS
+========================================= */
+.company-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 30px;
+    text-decoration: none;
+    /* Borde por defecto transparente abajo para evitar saltos al hacer hover */
+    border: 1px solid var(--border-color);
+    border-bottom: 4px solid transparent; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.03); /* Sombra inicial muy sutil */
+    transition: var(--transition);
+}
+
+.company-card img {
+    max-width: 100%;
+    max-height: 100px;
+    transition: transform 0.4s ease;
+}
+
+/* Efectos Generales al pasar el mouse (Hover) */
+.company-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0,0,0,0.08); /* Aumenta la sombra */
+}
+
+.company-card:hover img {
+    transform: scale(1.05); /* El logo crece levemente */
+}
+
+/* Colores de acento específicos para cada filial en el borde inferior */
+.bidea-glow:hover { border-bottom-color: #ffc800; } /* Amarillo Bidea */
+.hts-glow:hover   { border-bottom-color: #0096ff; } /* Azul HTS */
+.ert-glow:hover   { border-bottom-color: #b41414; } /* Rojo ERT */
+.deg-glow:hover   { border-bottom-color: #ff5722; } /* Naranja DEG */
+
+/* =========================================
+   FOOTER
+========================================= */
+footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+/* =========================================
+   ANIMACIÓN DE ENTRADA (FADE-IN)
+========================================= */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+.fade-in.loaded {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   DISEÑO RESPONSIVE (Tablets y Móviles)
+========================================= */
+@media (max-width: 768px) {
+    .hero {
+        padding: 5vh 20px 30px;
+    }
+
+    .main-logo { 
+        width: 300px; 
+    }
+    
+    .hero-text h1 { 
+        font-size: 1.8rem; 
+        font-weight: 600; 
+    }
+    
+    .hero-text p { 
+        font-size: 1rem; 
+    }
+    
+    .companies-grid {
+        gap: 20px;
+    }
+
+    .company-card { 
+        padding: 20px; 
+    }
+    
+    .company-card img { 
+        max-height: 80px; 
+    }
+}
