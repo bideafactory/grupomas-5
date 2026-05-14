@@ -231,5 +231,27 @@
     <div>Chile · Perú · Colombia · España</div>
 </footer>
 
+
+<div id="cookie-banner" class="cookie-banner">
+    <div class="cookie-content">
+        <p>Usamos cookies para analizar el tráfico del sitio web y optimizar tu experiencia en el sitio. Al aceptar nuestro uso de cookies, tus datos se agruparán con los datos de todos los demás usuarios.</p>
+        <div class="cookie-btns">
+            <button onclick="aceptarCookies()" class="btn-cookie btn-accept">Aceptar</button>
+            <button onclick="cerrarBanner()" class="btn-cookie btn-cancel">Cancelar</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function aceptarCookies() {
+        // Aquí podrías guardar la preferencia en el navegador (localStorage)
+        console.log("Cookies aceptadas");
+        cerrarBanner();
+    }
+
+    function cerrarBanner() {
+        document.getElementById('cookie-banner').style.display = 'none';
+    }
+</script>
 </body>
 </html>
